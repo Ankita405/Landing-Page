@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DigitalX Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">DigitalX</h1>
+      <nav>
+        <ul>
+          <li><a href="#" onclick="showSection('home')">Home</a></li>
+          <li><a href="#" onclick="showSection('home')">Blog</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="consult.html">Consult</a></li>
+          <li><a href="buy.html" class="btn-nav">Buy Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Blog List Section --> 
+  <section id="home" class="section container">
+    <h2>Latest Blog Posts</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="images/blog1.jpg" alt="Blog 1" />
+        <h3>AI & Business in 2025</h3>
+        <p>How artificial intelligence is changing the way we work, hire, and grow businesses.</p>
+        <a href="#" class="btn-small" onclick="loadPost('ai')">Read More</a>
+      </div>
+
+      <div class="card">
+        <img src="images/blog2.jpg" alt="Blog 2" />
+        <h3>Top UX Trends</h3>
+        <p>User-centered design tips that boost engagement and satisfaction in modern apps.</p>
+        <a href="#" class="btn-small" onclick="loadPost('ux')">Read More</a>
+      </div>
+
+      <div class="card">
+        <img src="images/blog3.jpg" alt="Blog 3" />
+        <h3>Marketing Hacks</h3>
+        <p>Discover 10 digital marketing hacks that skyrocketed our client traffic by 300%.</p>
+        <a href="#" class="btn-small" onclick="loadPost('marketing')">Read More</a>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 40px;">More From The Blog</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Building Secure Web Apps</h3>
+        <p>Security practices you should follow to protect user data and APIs.</p>
+        <a href="#" class="btn-small" onclick="loadPost('security')">Read More</a>
+      </div>
+
+      <div class="card">
+        <h3>Freelancing vs Full-time</h3>
+        <p>Pros, cons, and real stories of developers switching careers in 2025.</p>
+        <a href="#" class="btn-small" onclick="loadPost('career')">Read More</a>
+      </div>
+    </div>
+  </section> 
+
+  <!-- Blog Details Section -->
+  <section id="details" class="section container hidden">
+    <a href="#" onclick="showSection('home')" class="btn-small">← Back to Blog</a>
+    <div id="post-content"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 DigitalX. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const blogPosts = {
+      ai: {
+        title: "AI & Business in 2025",
+        content: `
+          <p>Artificial Intelligence (AI) is transforming business operations in 2025. From automation to decision-making,
+             AI enhances productivity and customer experiences.</p>
+          <p>AI-powered tools streamline recruitment, marketing, and customer service, giving businesses a competitive edge.</p>
+          <p>However, ethical use and data security remain critical considerations.</p>
+        `
+      },
+      ux: {
+        title: "Top UX Trends in 2025",
+        content: `
+          <p>2025 UX trends focus on accessibility, minimalism, voice UI, and AI-personalized experiences.</p>
+          <p>Dark mode, micro-interactions, and emotional design continue to shape modern applications.</p>
+          <p>User satisfaction and inclusivity are at the heart of these innovations.</p>
+        `
+      },
+      marketing: {
+        title: "10 Digital Marketing Hacks for 2025",
+        content: `
+          <p>Boost your digital growth with these hacks:</p>
+          <ul>
+            <li>Leverage micro-influencers</li>
+            <li>Use short-form video content</li>
+            <li>Optimize for voice search</li>
+            <li>Implement retargeting strategies</li>
+            <li>Run exclusive email campaigns</li>
+          </ul>
+        `
+      },
+      security: {
+        title: "Building Secure Web Applications",
+        content: `
+          <p>To secure web apps, use HTTPS, input validation, and strong authentication.</p>
+          <p>Encrypt sensitive data, sanitize user inputs, and perform regular vulnerability scans.</p>
+          <p>Security must be proactive, continuous, and collaborative across teams.</p>
+        `
+      },
+      career: {
+        title: "Freelancing vs Full-time: Developer Life",
+        content: `
+          <p>Freelancing offers flexibility and variety, while full-time roles provide stability and growth paths.</p>
+          <p>Many developers in 2025 adopt hybrid careers—freelancing alongside part-time employment or contracts.</p>
+          <p>Your choice depends on your work style, risk tolerance, and personal goals.</p>
+        `
+      }
+    };
+
+    function showSection(sectionId) {
+      document.getElementById('home').classList.add('hidden');
+      document.getElementById('details').classList.add('hidden');
+      document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    function loadPost(key) {
+      const post = blogPosts[key];
+      if (post) {
+        document.getElementById("post-content").innerHTML = `
+          <h2>${post.title}</h2>
+          ${post.content}
+        `;
+        showSection("details");
+      }
+    }
+  </script>
+
+</body>
+</html>

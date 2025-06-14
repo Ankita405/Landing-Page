@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services - DigitalX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">DigitalX</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="consult.html">Consult</a></li>
+          <li><a href="buy.html" class="btn-nav">Buy Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section class="section container">
+    <h2>Our Services</h2>
+    <div class="services-row">
+
+      <div class="service-box card">
+        <img src="images/web develop.jpg" alt="Web Dev">
+        <h3>Web Development</h3>
+        <p>Custom websites using React, Node.js, and more.</p>
+        <div class="more-content"></div>
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <div class="service-box card">
+        <img src="images/app development.jpg" alt="Mobile App">
+        <h3>Mobile App Development</h3>
+        <p>iOS and Android apps with Flutter and React Native for businesses and startups.</p>
+        <div class="more-content"></div>
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+      <div class="service-box card">
+        <img src="images/UIUX.jpg" alt="UI UX">
+        <h3>UI/UX Design</h3>
+        <p>Modern designs using Figma and Adobe XD with excellent user experience flows.</p>
+        <div class="more-content"></div>
+        <button class="read-more-btn">Read More</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    const serviceDetails = {
+      web: `
+        <p>We specialize in creating responsive, fast-loading websites using HTML, CSS, JavaScript, React, and Node.js. 
+        Our web solutions are built for scale, performance, and user engagement.</p>
+        <p>We also offer SEO optimization, CMS integration, and maintenance services.</p>
+      `,
+      mobile: `
+        <p>Our mobile app development covers both iOS and Android platforms using Flutter and React Native. 
+        We ensure smooth performance, attractive UI, and deep device integration.</p>
+        <p>We also offer testing, deployment, and app store optimization.</p>
+      `,
+      uiux: `
+        <p>We create modern, user-centered designs using tools like Figma and Adobe XD. 
+        Our focus is on intuitive layouts, consistent branding, and delightful interactions.</p>
+        <p>We also conduct usability testing and feedback iterations to refine user journeys.</p>
+      `
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach((card, index) => {
+        const button = card.querySelector(".read-more-btn");
+        const key = ["web", "mobile", "uiux"][index];
+        const moreContent = card.querySelector(".more-content");
+
+        button.addEventListener("click", function () {
+          if (moreContent.innerHTML.trim() === "") {
+            moreContent.innerHTML = serviceDetails[key];
+            moreContent.style.display = "block";
+            button.textContent = "Read Less";
+          } else {
+            moreContent.innerHTML = "";
+            moreContent.style.display = "none";
+            button.textContent = "Read More";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

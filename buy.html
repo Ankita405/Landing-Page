@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Digital Agency</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">DigitalX</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="consult.html">Consult</a></li>
+          <li><a href="buy.html" class="btn-nav">Buy Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="buy">
+  <h2>Purchase Our Premium Package</h2>
+  <p>Includes full website development, SEO optimization, and 3 months free support.</p>
+  <h3>Price: $499</h3>
+
+  <label for="buyerName">Name *</label><br />
+  <input type="text" id="buyerName" placeholder="Your Full Name" required /><br /><br />
+
+  <label for="buyerEmail">Email *</label><br />
+  <input type="email" id="buyerEmail" placeholder="you@example.com" required /><br /><br />
+
+  <button id="buyNowBtn">Buy Now</button>
+</section>
+
+<!-- Modal Popup -->
+<div id="modal" style="display:none;">
+  <div>
+    <p>Thank you for your purchase!</p>
+    <p>We will contact you shortly at <span id="modalEmail"></span>.</p>
+    <button id="closeModal">Close</button>
+  </div>
+</div>
+</body>
+</html>
